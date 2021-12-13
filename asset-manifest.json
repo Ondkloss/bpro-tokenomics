@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bpro-tokenomics/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/bpro-tokenomics/static/js/main.8d5e7d32.chunk.js",
-    "main.js.map": "/bpro-tokenomics/static/js/main.8d5e7d32.chunk.js.map",
-    "runtime-main.js": "/bpro-tokenomics/static/js/runtime-main.652d5216.js",
-    "runtime-main.js.map": "/bpro-tokenomics/static/js/runtime-main.652d5216.js.map",
+    "main.css": "/bpro-tokenomics/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/bpro-tokenomics/static/js/main.41f74ae4.chunk.js",
+    "main.js.map": "/bpro-tokenomics/static/js/main.41f74ae4.chunk.js.map",
+    "runtime-main.js": "/bpro-tokenomics/static/js/runtime-main.911f5a1e.js",
+    "runtime-main.js.map": "/bpro-tokenomics/static/js/runtime-main.911f5a1e.js.map",
     "static/css/2.0a9ec390.chunk.css": "/bpro-tokenomics/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.064825ad.chunk.js": "/bpro-tokenomics/static/js/2.064825ad.chunk.js",
-    "static/js/2.064825ad.chunk.js.map": "/bpro-tokenomics/static/js/2.064825ad.chunk.js.map",
-    "static/js/3.cb3d0a2e.chunk.js": "/bpro-tokenomics/static/js/3.cb3d0a2e.chunk.js",
-    "static/js/3.cb3d0a2e.chunk.js.map": "/bpro-tokenomics/static/js/3.cb3d0a2e.chunk.js.map",
+    "static/js/2.4470f6d9.chunk.js": "/bpro-tokenomics/static/js/2.4470f6d9.chunk.js",
+    "static/js/2.4470f6d9.chunk.js.map": "/bpro-tokenomics/static/js/2.4470f6d9.chunk.js.map",
+    "static/js/3.e69c5535.chunk.js": "/bpro-tokenomics/static/js/3.e69c5535.chunk.js",
+    "static/js/3.e69c5535.chunk.js.map": "/bpro-tokenomics/static/js/3.e69c5535.chunk.js.map",
     "index.html": "/bpro-tokenomics/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/bpro-tokenomics/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/bpro-tokenomics/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.064825ad.chunk.js.LICENSE.txt": "/bpro-tokenomics/static/js/2.064825ad.chunk.js.LICENSE.txt"
+    "static/css/main.2ae47eeb.chunk.css.map": "/bpro-tokenomics/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.4470f6d9.chunk.js.LICENSE.txt": "/bpro-tokenomics/static/js/2.4470f6d9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.652d5216.js",
+    "static/js/runtime-main.911f5a1e.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.064825ad.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.8d5e7d32.chunk.js"
+    "static/js/2.4470f6d9.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.41f74ae4.chunk.js"
   ]
 }
