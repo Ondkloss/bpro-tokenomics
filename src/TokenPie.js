@@ -12,6 +12,11 @@ const options = {
     credits: {
         enabled: false
     },
+    tooltip: {
+        formatter: function () {
+            return this.key + ": <b>" + Highcharts.numberFormat(this.y, 0) + " BPRO</b>"
+        }
+    },
     series: [{
         data: [{
             name: "Reservoir (Treasury), distributed over 4 years",

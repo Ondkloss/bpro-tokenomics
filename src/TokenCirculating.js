@@ -34,11 +34,11 @@ const options = {
             let sum = 0;
 
             this.points.forEach(point => {
-                result += point.series.name + ": <b>" + Highcharts.numberFormat(point.y, 0) + "</b><br/>"
+                result += point.series.name + ": <b>" + Highcharts.numberFormat(point.y, 0) + " BPRO</b><br/>"
                 sum += point.y
             })
 
-            result = "<b>" + this.points[0].x+" <> "+this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + ")</b><br />" + result
+            result = "<b>" + this.points[0].x+" <> "+this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + " BPRO)</b><br />" + result
 
             return result;
         }
@@ -70,19 +70,19 @@ const circulating = () =>
         />
         <ListGroup className="mx-5">
             <ListGroup.Item>
-                <b>April 2021 (0 months):</b> 1 150 000 - Genesis distribution to Maker, Compound and backstop<br />
+                <b>April 2021 (0 months):</b> 1 150 000 BPRO - Genesis distribution to Maker, Compound and backstop<br />
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>July 2021 (3 months):</b>: 250 000 - Genesis liquidity mining distributed<br />
+                <b>July 2021 (3 months):</b>: 250 000 BPRO - Genesis liquidity mining distributed<br />
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon:</b> 30 000 or 90 000 - Second liquidity mining period KPI options<br />
+                <b>Soon:</b> 30 000 BPRO or 90 000 BPRO - Second liquidity mining period KPI options<br />
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon:</b> 500 000 - Venture capital round<br />
+                <b>Soon:</b> 500 000 BPRO - Venture capital round<br />
                 <b>Source:</b> Developer fund
             </ListGroup.Item>
         </ListGroup>

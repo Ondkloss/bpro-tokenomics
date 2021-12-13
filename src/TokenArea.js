@@ -32,11 +32,11 @@ const options = {
             let sum = 0;
 
             this.points.forEach(point => {
-                result += point.series.name + ": <b>" + Highcharts.numberFormat(point.y, 0) + "</b><br/>"
+                result += point.series.name + ": <b>" + Highcharts.numberFormat(point.y, 0) + " BPRO</b><br/>"
                 sum += point.y
             })
 
-            result = "<b>" + this.points[0].x + " <> " + this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + ")</b><br />" + result
+            result = "<b>" + this.points[0].x + " <> " + this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + " BPRO)</b><br />" + result
 
             return result;
         }
@@ -76,10 +76,10 @@ const area = () => <>
     />
     <ListGroup className="mx-5">
         <ListGroup.Item>
-            <b>Reservoir (Treasury):</b> Issuance is 1 325 000 per year, for 4 years
+            <b>Reservoir (Treasury):</b> Issuance is 1 325 000 BPRO per year, for 4 years
         </ListGroup.Item>
         <ListGroup.Item>
-            <b>Developer fund:</b> Issuance is 825 000 per year, for 4 years
+            <b>Developer fund:</b> Issuance is 825 000 BPRO per year, for 4 years
         </ListGroup.Item>
     </ListGroup>
 </>
