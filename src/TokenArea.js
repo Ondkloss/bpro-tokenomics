@@ -1,7 +1,8 @@
 import React from 'react'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
-import { calculateIntermediatePoints } from './Utils'
+import { calculateIntermediatePoints, getListOfYearMonthStrings } from './Utils'
+import { ListGroup } from 'react-bootstrap'
 
 const options = {
     chart: {
@@ -35,10 +36,15 @@ const options = {
                 sum += point.y
             })
 
-            result = "<b>" + this.points[0].x + " months (Total: " + Highcharts.numberFormat(sum, 0) + ")</b><br />" + result;
+            result = "<b>" + this.points[0].x + " <> " + this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + ")</b><br />" + result
 
             return result;
         }
+    },
+    xAxis: {
+        type: 'category',
+        categories: getListOfYearMonthStrings(0, 49),
+        tickInterval: 3
     },
     series: [{
         name: "Reservoir (Treasury)",
@@ -63,9 +69,19 @@ const options = {
     }]
 }
 
-const area = () => <HighchartsReact
-    highcharts={Highcharts}
-    options={options}
-/>
+const area = () => <>
+    <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+    />
+    <ListGroup className="mx-5">
+        <ListGroup.Item>
+            <b>Reservoir (Treasury):</b> Issuance is 1 325 000 per year, for 4 years
+        </ListGroup.Item>
+        <ListGroup.Item>
+            <b>Developer fund:</b> Issuance is 825 000 per year, for 4 years
+        </ListGroup.Item>
+    </ListGroup>
+</>
 
 export default area

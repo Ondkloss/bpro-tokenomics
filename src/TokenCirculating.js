@@ -1,7 +1,10 @@
 import React from 'react'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
-import { ListGroup } from 'react-bootstrap';
+import { Badge, ListGroup } from 'react-bootstrap';
+import { addPoints, getListOfYearMonthStrings } from './Utils';
+
+const numberOfMonthsCovered = 8
 
 const options = {
     chart: {
@@ -26,32 +29,36 @@ const options = {
     },
     tooltip: {
         shared: true,
-        headerFormat: "<b>{point.key} months</b><br/>",
-        pointFormatter: function () {
-            return this.series.name + ": <b> " + Highcharts.numberFormat(this.y, 0) + " </b> <br/> ";
+        formatter: function () {
+            let result = "";
+            let sum = 0;
+
+            this.points.forEach(point => {
+                result += point.series.name + ": <b>" + Highcharts.numberFormat(point.y, 0) + "</b><br/>"
+                sum += point.y
+            })
+
+            result = "<b>" + this.points[0].x+" <> "+this.points[0].point.x + " months (Total: " + Highcharts.numberFormat(sum, 0) + ")</b><br />" + result
+
+            return result;
         }
     },
+    xAxis: {
+        type: 'category',
+        categories: getListOfYearMonthStrings(0, numberOfMonthsCovered - 1)
+    },
     series: [{
-        name: "Circulating supply",
-        data: [{
-            name: "0 months: Genesis distribution to Maker, Compound and backstop",
-            y: 1_150_000
-        }, {
-            y: 1_150_000
-        }, {
-            y: 1_150_000
-        }, {
-            name: "3 months: Genesis liquidity mining distributed",
-            y: 1_400_000
-        }, {
-            y: 1_400_000
-        }, {
-            y: 1_400_000
-        }, {
-            y: 1_400_000
-        }, {
-            y: 1_400_000
-        }]
+        name: "Maker pre-genesis users",
+        data: addPoints(500_000, undefined, 0, 500_000, numberOfMonthsCovered - 1)
+    }, {
+        name: "Compound pre-genesis users",
+        data: addPoints(500_000, undefined, 0, 500_000, numberOfMonthsCovered - 1)
+    }, {
+        name: "Genesis backstop",
+        data: addPoints(150_000, undefined, 0, 150_000, numberOfMonthsCovered - 1)
+    }, {
+        name: "Genesis liquidity mining",
+        data:  addPoints(250_000, 0, 3, 250_000, numberOfMonthsCovered - 1 - 3)
     }]
 }
 
@@ -61,12 +68,22 @@ const circulating = () =>
             highcharts={Highcharts}
             options={options}
         />
-        <ListGroup>
+        <ListGroup className="mx-5">
             <ListGroup.Item>
-                0 months: 1 150 000: Genesis distribution to Maker, Compound and backstop
+                <b>April 2021 (0 months):</b> 1 150 000 - Genesis distribution to Maker, Compound and backstop<br />
+                <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
-                3 months: 250 000: Genesis liquidity mining distributed
+                <b>July 2021 (3 months):</b>: 250 000 - Genesis liquidity mining distributed<br />
+                <b>Source:</b> One time minting
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Soon:</b> 30 000 or 90 000 - Second liquidity mining period KPI options<br />
+                <b>Source:</b> Reservoir (Treasury)
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Soon:</b> 500 000 - Venture capital round<br />
+                <b>Source:</b> Developer fund
             </ListGroup.Item>
         </ListGroup>
     </>
