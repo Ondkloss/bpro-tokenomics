@@ -3,14 +3,18 @@ import TokenPie from './TokenPie'
 import TokenArea from './TokenArea'
 import TokenCirculating from './TokenCirculating'
 import Sources from './Sources'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 import { Card, Container, Row } from 'react-bootstrap';
 import Links from './Links'
 
 const App = () => <Container>
   <Row className="mx-1 mt-2">
+    <Card className="my-2">
+      <Card.Body>
     <h1 className="text-center">Community made BPRO Tokenomics</h1>
     <p className="text-muted text-center">Highly unofficial, but based on best knowledge</p>
+    </Card.Body>
+    </Card>
   </Row>
   <Row className="mx-1">
     <Card className="my-2">

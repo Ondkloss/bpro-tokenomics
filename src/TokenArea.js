@@ -11,6 +11,7 @@ const options = {
     title: {
         text: undefined
     },
+    colors: ["#20ae5e", "#24c168", "#3ac777", "#50cd86", "#66d495", "#7cdaa4", "#92e0b4", "#a7e6c3", "#bdecd2", "#d3f3e1", "#e9f9f0"],
     plotOptions: {
         area: {
             stacking: "Normal"
@@ -21,6 +22,9 @@ const options = {
                 symbol: "circle"
             }
         }
+    },
+    yAxis: {
+        max: 10_000_000
     },
     credits: {
         enabled: false
