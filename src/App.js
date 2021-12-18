@@ -2,6 +2,8 @@ import React from 'react'
 import TokenPie from './TokenPie'
 import TokenArea from './TokenArea'
 import TokenCirculating from './TokenCirculating'
+import ReservoirMovement from './ReservoirMovement'
+import DeveloperFundMovement from './DeveloperFundMovement'
 import Sources from './Sources'
 import './styles.css';
 import { Card, Container, Row } from 'react-bootstrap';
@@ -36,8 +38,24 @@ const App = () => <Container>
   <Row className="mx-1"><Card className="my-2">
     <Card.Body>
       <Card.Title className="text-center">Circulating supply</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted text-center">What has been distributed (not well defined or complete, description in tooltip)</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted text-center">What has been distributed and is liquid (not well defined or complete, description in tooltip)</Card.Subtitle>
       <TokenCirculating />
+    </Card.Body>
+  </Card>
+  </Row>
+  <Row className="mx-1"><Card className="my-2">
+    <Card.Body>
+      <Card.Title className="text-center">Reservoir (Treasury) movement</Card.Title>
+      <Card.Subtitle className="mb-2 text-muted text-center">Movements from the DAO reservoir</Card.Subtitle>
+      <ReservoirMovement />
+    </Card.Body>
+  </Card>
+  </Row>
+  <Row className="mx-1"><Card className="my-2">
+    <Card.Body>
+      <Card.Title className="text-center">Developer fund movement</Card.Title>
+      <Card.Subtitle className="mb-2 text-muted text-center">Movements from the Developer fund</Card.Subtitle>
+      <DeveloperFundMovement />
     </Card.Body>
   </Card>
   </Row>

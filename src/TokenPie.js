@@ -1,18 +1,12 @@
 import React from 'react'
-import Highcharts from 'highcharts/highstock'
+import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import { getDefaultChartOptions } from './Utils'
 
-const options = {
+const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
         type: 'pie'
     },
-    title: {
-        text: undefined
-    },
-    credits: {
-        enabled: false
-    },
-    colors: ["#20ae5e", "#24c168", "#3ac777", "#50cd86", "#66d495", "#7cdaa4", "#92e0b4", "#a7e6c3", "#bdecd2", "#d3f3e1", "#e9f9f0"],
     tooltip: {
         formatter: function () {
             return this.key + ": <b>" + Highcharts.numberFormat(this.y, 0) + " BPRO</b> ("+this.percentage+"%)"
@@ -35,15 +29,17 @@ const options = {
             name: "Genesis liquidity mining, distributed over 3 months",
             y: 250_000
         }, {
-            name: "Genesis backstop, instant distribution",
+            name: "Genesis backstop, distributed over 1 year",
             y: 150_000
         }]
     }]
-}
+})
 
-const pie = () => <HighchartsReact
+const pie = () => <>
+    <HighchartsReact
     highcharts={Highcharts}
     options={options}
-/>
+    />
+</>
 
 export default pie

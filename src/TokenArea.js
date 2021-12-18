@@ -1,17 +1,13 @@
 import React from 'react'
-import Highcharts from 'highcharts/highstock'
+import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import { calculateIntermediatePoints, getListOfYearMonthStrings } from './Utils'
+import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions } from './Utils'
 import { ListGroup } from 'react-bootstrap'
 
-const options = {
+const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
         type: 'area',
     },
-    title: {
-        text: undefined
-    },
-    colors: ["#20ae5e", "#24c168", "#3ac777", "#50cd86", "#66d495", "#7cdaa4", "#92e0b4", "#a7e6c3", "#bdecd2", "#d3f3e1", "#e9f9f0"],
     plotOptions: {
         area: {
             stacking: "Normal"
@@ -25,9 +21,6 @@ const options = {
     },
     yAxis: {
         max: 10_000_000
-    },
-    credits: {
-        enabled: false
     },
     tooltip: {
         shared: true,
@@ -52,26 +45,28 @@ const options = {
     },
     series: [{
         name: "Reservoir (Treasury)",
-        data: calculateIntermediatePoints(0, 0, 48, 1_325_000 * 4, 49)
+        data: calculateIntermediatePoints(0, 0, 48, 1_325_000 * 4)
     }, {
         name: "Developer fund",
-        data: calculateIntermediatePoints(0, 0, 48, 825_000 * 4, 49)
+        data: calculateIntermediatePoints(0, 0, 48, 825_000 * 4)
     }, {
         name: "Maker pre-genesis users",
-        data: calculateIntermediatePoints(0, 500_000, 48, 500_000, 49)
+        data: calculateIntermediatePoints(0, 500_000, 48, 500_000)
     }, {
         name: "Compound pre-genesis users",
-        data: calculateIntermediatePoints(0, 500_000, 48, 500_000, 49)
+        data: calculateIntermediatePoints(0, 500_000, 48, 500_000)
     }, {
         name: "Genesis backstop",
-        data: calculateIntermediatePoints(0, 150_000, 48, 150_000, 49)
+        data: []
+            .concat(calculateIntermediatePoints(0, 0, 12, 150_000))
+            .concat(addPointCopies(150_000, 49 - 13))
     }, {
         name: "Genesis liquidity mining",
         data: []
             .concat(calculateIntermediatePoints(0, 0, 3, 250_000, 4).slice(0, -1))
             .concat(calculateIntermediatePoints(3, 250_000, 48, 250_000, 46))
     }]
-}
+})
 
 const area = () => <>
     <HighchartsReact
@@ -79,6 +74,9 @@ const area = () => <>
         options={options}
     />
     <ListGroup className="mx-5">
+        <ListGroup.Item className="active">
+            <b>Notes</b>
+        </ListGroup.Item>
         <ListGroup.Item>
             <b>Reservoir (Treasury):</b> Issuance is 1 325 000 BPRO per year, for 4 years
         </ListGroup.Item>

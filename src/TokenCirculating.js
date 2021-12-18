@@ -1,19 +1,15 @@
 import React from 'react'
-import Highcharts from 'highcharts/highstock'
+import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import { ListGroup } from 'react-bootstrap';
-import { addPoints, getListOfYearMonthStrings } from './Utils';
+import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils';
 
-const numberOfMonthsCovered = 8
+const numberOfMonthsCovered = 9
 
-const options = {
+const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
         type: 'area',
     },
-    title: {
-        text: undefined
-    },
-    colors: ["#20ae5e", "#24c168", "#3ac777", "#50cd86", "#66d495", "#7cdaa4", "#92e0b4", "#a7e6c3", "#bdecd2", "#d3f3e1", "#e9f9f0"],
     plotOptions: {
         area: {
             stacking: "Normal"
@@ -24,9 +20,6 @@ const options = {
                 symbol: "circle"
             }
         }
-    },
-    credits: {
-        enabled: false
     },
     tooltip: {
         shared: true,
@@ -46,22 +39,29 @@ const options = {
     },
     xAxis: {
         type: 'category',
-        categories: getListOfYearMonthStrings(0, numberOfMonthsCovered - 1)
+        categories: getListOfYearMonthStrings(0, numberOfMonthsCovered)
     },
     series: [{
         name: "Maker pre-genesis users",
-        data: addPoints(500_000, undefined, 0, 500_000, numberOfMonthsCovered - 1)
+        data: addPointCopies(500_000, numberOfMonthsCovered)
     }, {
         name: "Compound pre-genesis users",
-        data: addPoints(500_000, undefined, 0, 500_000, numberOfMonthsCovered - 1)
+        data: addPointCopies(500_000, numberOfMonthsCovered)
     }, {
         name: "Genesis backstop",
-        data: addPoints(150_000, undefined, 0, 150_000, numberOfMonthsCovered - 1)
+        data: cutToMaxLength(calculateIntermediatePoints(0, 0, 12, 150_000), numberOfMonthsCovered)
     }, {
         name: "Genesis liquidity mining",
-        data:  addPoints(250_000, 0, 3, 250_000, numberOfMonthsCovered - 1 - 3)
+        data:  []
+            .concat(addPointCopies(0, 3))
+            .concat(addPointCopies(250_000, numberOfMonthsCovered - 3))
+    }, {
+        name: "Second liquidity mining",
+        data:  []
+            .concat(addPointCopies(0, 8))
+            .concat(addPointCopies(30_000, numberOfMonthsCovered - 8))
     }]
-}
+})
 
 const circulating = () =>
     <>
@@ -70,8 +70,15 @@ const circulating = () =>
             options={options}
         />
         <ListGroup className="mx-5">
+            <ListGroup.Item className="active">
+                <b>Notes</b>
+            </ListGroup.Item>
             <ListGroup.Item>
-                <b>April 2021 (0 months):</b> 1 150 000 BPRO - Genesis distribution to Maker, Compound and backstop<br />
+                <b>April 2021 (0 months):</b> 1 000 000 BPRO - Genesis distribution to Maker and Compound pre-genesis users<br />
+                <b>Source:</b> One time minting
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>April 2021 (0 months):</b>: 150 000 BPRO - Started genesis backstop 1 year drip<br />
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
@@ -79,12 +86,24 @@ const circulating = () =>
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon:</b> 30 000 BPRO or 90 000 BPRO - Second liquidity mining period KPI options<br />
+                <b>Soon (December):</b> 30 000 BPRO or 90 000 BPRO - Second liquidity mining period KPI options (BIP-4)<br />
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon:</b> 500 000 BPRO - Venture capital round<br />
+                <b>Soon (December):</b> 500 000 BPRO - Venture capital round (pending confirmation, assumed to be vested)<br />
                 <b>Source:</b> Developer fund
+            </ListGroup.Item>
+        </ListGroup>
+
+        <ListGroup className="mx-5 mt-3">
+            <ListGroup.Item className="active">
+                <b>Excluded</b>
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Growth squad:</b> 25 000 BPRO - Can be spent by growth squad multisig<br />
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Developer fund:</b> 825 000 BPRO per year - Can be spent by developer multisig<br />
             </ListGroup.Item>
         </ListGroup>
     </>
