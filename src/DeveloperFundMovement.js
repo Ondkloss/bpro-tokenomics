@@ -38,8 +38,7 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
     },
     xAxis: {
         type: 'category',
-        categories: getListOfYearMonthStrings(0, 49),
-        tickInterval: 3
+        categories: getListOfYearMonthStrings(0, numberOfMonthsCovered)
     },
     series: [{
         name: "Developer fund",
