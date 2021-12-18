@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bpro-tokenomics/static/css/main.72b21af0.chunk.css",
-    "main.js": "/bpro-tokenomics/static/js/main.d0f25dfc.chunk.js",
-    "main.js.map": "/bpro-tokenomics/static/js/main.d0f25dfc.chunk.js.map",
+    "main.js": "/bpro-tokenomics/static/js/main.961eddaa.chunk.js",
+    "main.js.map": "/bpro-tokenomics/static/js/main.961eddaa.chunk.js.map",
     "runtime-main.js": "/bpro-tokenomics/static/js/runtime-main.13b7698a.js",
     "runtime-main.js.map": "/bpro-tokenomics/static/js/runtime-main.13b7698a.js.map",
     "static/js/2.30ebecf6.chunk.js": "/bpro-tokenomics/static/js/2.30ebecf6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.13b7698a.js",
     "static/js/2.30ebecf6.chunk.js",
     "static/css/main.72b21af0.chunk.css",
-    "static/js/main.d0f25dfc.chunk.js"
+    "static/js/main.961eddaa.chunk.js"
   ]
 }
