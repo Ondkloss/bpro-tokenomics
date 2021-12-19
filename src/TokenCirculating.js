@@ -56,7 +56,7 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
             .concat(addPointCopies(0, 3))
             .concat(addPointCopies(250_000, numberOfMonthsCovered - 3))
     }, {
-        name: "Second liquidity mining",
+        name: "Second liquidity mining (BIP-4)",
         data:  []
             .concat(addPointCopies(0, 8))
             .concat(addPointCopies(30_000, numberOfMonthsCovered - 8))

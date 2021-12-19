@@ -66,14 +66,14 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
             .concat(addPointCopies(90_000, 49 - 5)),
             numberOfMonthsCovered)
     }, {
-        name: "Growth squad fund (BIP-5)",
+        name: "Growth squad (BIP-5)",
         data: cutToMaxLength(
             []
             .concat(addPointCopies(0, 5))
             .concat(addPointCopies(25_000, 49 - 5)),
             numberOfMonthsCovered)
     }, {
-        name: "Immunefi bug bounty (BIP-6)",
+        name: "Immunefi bug bounty (BIP-6) and Hats.finance (BIP-7)",
         data: cutToMaxLength(
             []
             .concat(addPointCopies(0, 5))
