@@ -70,6 +70,11 @@ const getDefaultChartOptions = () => {
         colors: ["#20ae5e", "#24c168", "#3ac777", "#50cd86", "#66d495", "#7cdaa4", "#92e0b4", "#a7e6c3", "#bdecd2", "#d3f3e1", "#e9f9f0"],
         credits: {
             enabled: false
+        },
+        yAxis: {
+            title: {
+                text: undefined
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ const secondLiquidityMining = "https://forum.bprotocol.org/t/bip-4-use-umas-kpi-
 const growthSquad = "https://forum.bprotocol.org/t/bip-5-growth-squad-fund/168"
 const immunefiBugBounty = "https://forum.bprotocol.org/t/bip-6-backing-b-protocol-immunefi-bug-bounty-program/169"
 const hatsFinance = "https://forum.bprotocol.org/t/bip-7-b-protocol-white-hat-incentive-vault-funding-proposal/181"
+const smartContracts = "https://docs.bprotocol.org/technical-documentation/smart-contracts"
 
 const sources = () => <ListGroup className="mx-5">
     <ListGroup.Item>
@@ -27,6 +28,9 @@ const sources = () => <ListGroup className="mx-5">
     </ListGroup.Item>
     <ListGroup.Item>
         <a href={hatsFinance}>BIP #7 - B.protocol white hat incentive vault funding proposal</a>
+    </ListGroup.Item>
+    <ListGroup.Item>
+        <a href={smartContracts}>B.Protocol Smart Contracts</a>
     </ListGroup.Item>
 </ListGroup>
 

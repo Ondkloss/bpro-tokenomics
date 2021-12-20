@@ -2,7 +2,9 @@ import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils'
+import { ListGroup } from 'react-bootstrap'
 
+const address = "https://etherscan.io/address/0xcC09c04A9e3930343290184544F97669eFF18A8d"
 const numberOfMonthsCovered = 9
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
@@ -87,6 +89,14 @@ const reservoir = () => <>
         highcharts={Highcharts}
         options={options}
     />
+    <ListGroup className="mx-5">
+        <ListGroup.Item className="active">
+            <b>Notes</b>
+        </ListGroup.Item>
+        <ListGroup.Item>
+            <b>Smart contract:</b> Address is <a href={address}>0xcC09c04A9e3930343290184544F97669eFF18A8d</a>
+        </ListGroup.Item>
+    </ListGroup>
 </>
 
 export default reservoir

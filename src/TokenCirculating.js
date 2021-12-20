@@ -86,7 +86,7 @@ const circulating = () =>
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon (December):</b> 30 000 BPRO or 90 000 BPRO - Second liquidity mining period KPI options (BIP-4)<br />
+                <b>December 2021 (8 months):</b> 30 000 BPRO - Second liquidity mining period KPI options (BIP-4)<br />
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
