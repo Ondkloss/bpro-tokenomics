@@ -1,11 +1,11 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils'
+import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength, addPointCopies } from './Utils'
 import { ListGroup } from 'react-bootstrap'
 
 const address = "https://etherscan.io/address/0x225f27022a50aF2735287262a47bdacA2315a43E"
-const numberOfMonthsCovered = 9
+const numberOfMonthsCovered = 10
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -46,7 +46,16 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
         name: "Developer fund",
         data: cutToMaxLength(
             applyReductionsToIntermediatePoints(calculateIntermediatePoints(0, 0, 48, 825_000 * 4),
-            []),
+            [
+                [8, 538_840]
+            ]),
+            numberOfMonthsCovered)
+    }, {
+        name: "Venture capital seed  round",
+        data: cutToMaxLength(
+            []
+            .concat(addPointCopies(0, 8))
+            .concat(addPointCopies(538_840, 49 - 8)),
             numberOfMonthsCovered)
     }]
 })
@@ -63,6 +72,9 @@ const developerFund = () => <>
         <ListGroup.Item>
             <b>Smart contract:</b> Address is <a href={address}>0x225f27022a50aF2735287262a47bdacA2315a43E</a>
         </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Venture capital seed round:</b> Vested linearly over 4 years from April 2021 (unconfirmed amount, but equal to moved BPRO at time of entry)
+            </ListGroup.Item>
     </ListGroup>
 </>
 

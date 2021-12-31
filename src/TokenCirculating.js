@@ -4,7 +4,7 @@ import HighchartsReact from 'highcharts-react-official'
 import { ListGroup } from 'react-bootstrap';
 import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils';
 
-const numberOfMonthsCovered = 9
+const numberOfMonthsCovered = 10
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -60,6 +60,11 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
         data:  []
             .concat(addPointCopies(0, 8))
             .concat(addPointCopies(30_000, numberOfMonthsCovered - 8))
+    }, {
+        name: "Venture capital round",
+        data: cutToMaxLength(
+            calculateIntermediatePoints(0, 0, 48, 538_840),
+            numberOfMonthsCovered)
     }]
 })
 
@@ -90,7 +95,7 @@ const circulating = () =>
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>Soon (December):</b> 500 000 BPRO - Venture capital round (pending confirmation, assumed to be vested)<br />
+                <b>December 2021:</b> 538 840 BPRO - Venture capital seed round, vested linearly over 4 years (unconfirmed amount, but equal to moved BPRO at time of entry)<br />
                 <b>Source:</b> Developer fund
             </ListGroup.Item>
         </ListGroup>

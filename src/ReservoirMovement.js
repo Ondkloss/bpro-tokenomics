@@ -5,7 +5,7 @@ import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, addPo
 import { ListGroup } from 'react-bootstrap'
 
 const address = "https://etherscan.io/address/0xcC09c04A9e3930343290184544F97669eFF18A8d"
-const numberOfMonthsCovered = 9
+const numberOfMonthsCovered = 10
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {

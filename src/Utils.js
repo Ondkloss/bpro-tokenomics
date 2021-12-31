@@ -4,7 +4,7 @@ const calculateIntermediatePoints = (startX, startY, endX, endY) => {
     const gapY = diffY / (endX - startX);
 
     for (let i = startX; i <= endX; i++) {
-        result.push(startY + (gapY * i))
+        result.push(startY + (gapY * (i - startX)))
     }
 
     return result
