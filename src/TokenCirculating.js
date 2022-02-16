@@ -4,7 +4,8 @@ import HighchartsReact from 'highcharts-react-official'
 import { ListGroup } from 'react-bootstrap';
 import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils';
 
-const numberOfMonthsCovered = 10
+const numberOfMonthsCovered = 18
+const pointOfExtrapolation = 10
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -12,7 +13,13 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
     },
     plotOptions: {
         area: {
-            stacking: "Normal"
+            stacking: "Normal",
+            zoneAxis: "x",
+            zones: [{
+                value: pointOfExtrapolation,
+              }, {
+                dashStyle: "dash"
+              }]
         },
         series: {
             marker: {
@@ -49,7 +56,9 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
         data: addPointCopies(500_000, numberOfMonthsCovered)
     }, {
         name: "Genesis backstop",
-        data: cutToMaxLength(calculateIntermediatePoints(0, 0, 12, 150_000), numberOfMonthsCovered)
+        data: []
+            .concat(calculateIntermediatePoints(0, 0, 12, 150_000))
+            .concat(addPointCopies(150_000, numberOfMonthsCovered - 13))
     }, {
         name: "Genesis liquidity mining",
         data:  []
@@ -61,10 +70,20 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
             .concat(addPointCopies(0, 8))
             .concat(addPointCopies(30_000, numberOfMonthsCovered - 8))
     }, {
+        name: "Growth squad (BIP-5)",
+        data:  []
+            .concat(addPointCopies(0, 5))
+            .concat(addPointCopies(25_000, numberOfMonthsCovered - 5))
+    }, {
         name: "Venture capital round",
         data: cutToMaxLength(
             calculateIntermediatePoints(0, 0, 48, 538_840),
             numberOfMonthsCovered)
+    }, {
+        name: "Nexus Mutual cover (BIP-11)",
+        data:  []
+            .concat(addPointCopies(0, 10))
+            .concat(addPointCopies(10_000, numberOfMonthsCovered - 10))
     }]
 })
 
@@ -91,21 +110,26 @@ const circulating = () =>
                 <b>Source:</b> One time minting
             </ListGroup.Item>
             <ListGroup.Item>
+                <b>September 2021 (5 months):</b>: 25 000 BPRO - Growth squad fund (BIP-5)<br />
+                <b>Source:</b> One time minting
+            </ListGroup.Item>
+            <ListGroup.Item>
                 <b>December 2021 (8 months):</b> 30 000 BPRO - Second liquidity mining period KPI options (BIP-4)<br />
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>December 2021:</b> 538 840 BPRO - Venture capital seed round, vested linearly over 4 years (unconfirmed amount, but equal to moved BPRO at time of entry)<br />
+                <b>December 2021 (8 months):</b> 538 840 BPRO - Venture capital seed round, vested linearly over 4 years (unconfirmed amount, but equal to moved BPRO at time of entry)<br />
                 <b>Source:</b> Developer fund
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>February 2021 (10 months):</b>: 10 000 BPRO - Nexual Mutual cover (BIP-11)<br />
+                <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
         </ListGroup>
 
         <ListGroup className="mx-5 mt-3">
             <ListGroup.Item className="active">
                 <b>Excluded</b>
-            </ListGroup.Item>
-            <ListGroup.Item>
-                <b>Growth squad:</b> 25 000 BPRO - Can be spent by growth squad multisig<br />
             </ListGroup.Item>
             <ListGroup.Item>
                 <b>Developer fund:</b> 825 000 BPRO per year - Can be spent by developer multisig<br />

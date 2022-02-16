@@ -10,6 +10,7 @@ const immunefiBugBounty = "https://forum.bprotocol.org/t/bip-6-backing-b-protoco
 const hatsFinance = "https://forum.bprotocol.org/t/bip-7-b-protocol-white-hat-incentive-vault-funding-proposal/181"
 const smartContracts = "https://docs.bprotocol.org/technical-documentation/smart-contracts"
 const ventureCapital = "https://medium.com/b-protocol/b-protocol-secures-2-2m-5e275ca0d979"
+const nexusMutualMining = "https://forum.bprotocol.org/t/bip-11-nexus-mutual-cover-for-b-protocol-smart-contracts/227"
 
 const sources = () => <ListGroup className="mx-5">
     <ListGroup.Item>
@@ -29,6 +30,9 @@ const sources = () => <ListGroup className="mx-5">
     </ListGroup.Item>
     <ListGroup.Item>
         <a href={hatsFinance}>BIP #7 - B.protocol white hat incentive vault funding proposal</a>
+    </ListGroup.Item>
+    <ListGroup.Item>
+        <a href={nexusMutualMining}>BIP #11 - Nexus Mutual Cover for B.Protocol smart contracts</a>
     </ListGroup.Item>
     <ListGroup.Item>
         <a href={ventureCapital}>B.Protocol Secures $2.2M in a Seed Round, Led by 1kx, To Make DeFi Liquidations Safer and More Efficient</a>

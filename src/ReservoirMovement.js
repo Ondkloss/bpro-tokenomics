@@ -5,7 +5,8 @@ import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, addPo
 import { ListGroup } from 'react-bootstrap'
 
 const address = "https://etherscan.io/address/0xcC09c04A9e3930343290184544F97669eFF18A8d"
-const numberOfMonthsCovered = 10
+const numberOfMonthsCovered = 18
+const pointOfExtrapolation = 10
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -13,7 +14,13 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
     },
     plotOptions: {
         area: {
-            stacking: "Normal"
+            stacking: "Normal",
+            zoneAxis: "x",
+            zones: [{
+                value: pointOfExtrapolation,
+              }, {
+                dashStyle: "dash"
+              }]
         },
         series: {
             marker: {
@@ -50,7 +57,8 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
                 [5, 200_000],
                 [5, 90_000],
                 [5, 25_000],
-                [5, 50_000]
+                [5, 50_000],
+                [10, 10_000]
             ]),
             numberOfMonthsCovered)
     }, {
@@ -80,6 +88,13 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
             []
             .concat(addPointCopies(0, 5))
             .concat(addPointCopies(50_000, 49 - 5)),
+            numberOfMonthsCovered)
+    }, {
+        name: "Nexus Mutual cover (BIP-11)",
+        data: cutToMaxLength(
+            []
+            .concat(addPointCopies(0, 10))
+            .concat(addPointCopies(10_000, 49 - 10)),
             numberOfMonthsCovered)
     }]
 })
