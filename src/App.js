@@ -14,7 +14,7 @@ const App = () => <Container>
     <Card className="my-2">
       <Card.Body>
     <h1 className="text-center">Community made BPRO Tokenomics</h1>
-    <p className="text-muted text-center">Highly unofficial, but based on best knowledge (last updated 16th of February 2022)</p>
+    <p className="text-muted text-center">Highly unofficial, but based on best knowledge (last updated 30th of August 2022)</p>
     </Card.Body>
     </Card>
   </Row>

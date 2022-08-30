@@ -4,8 +4,8 @@ import HighchartsReact from 'highcharts-react-official'
 import { ListGroup } from 'react-bootstrap';
 import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils';
 
-const numberOfMonthsCovered = 18
-const pointOfExtrapolation = 10
+const numberOfMonthsCovered = 24
+const pointOfExtrapolation = 16
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -118,12 +118,14 @@ const circulating = () =>
                 <b>Source:</b> Reservoir (Treasury)
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>December 2021 (8 months):</b> 538 840 BPRO - Venture capital seed round, vested linearly over 4 years (unconfirmed amount, but equal to moved BPRO at time of entry)<br />
-                <b>Source:</b> Developer fund
+                <b>December 2021 (8 months):</b> 538 840 BPRO - Venture capital seed round, vested linearly over 4 years<br />
+                <b>Source:</b> Developer fund<br />
+                <b>Comment:</b> Unconfirmed amount, but equal to moved BPRO at time of entry
             </ListGroup.Item>
             <ListGroup.Item>
-                <b>February 2021 (10 months):</b>: 10 000 BPRO - Nexual Mutual cover (BIP-11)<br />
-                <b>Source:</b> Reservoir (Treasury)
+                <b>February 2021 (10 months):</b> 10 000 BPRO - Nexual Mutual cover (BIP-11)<br />
+                <b>Source:</b> Reservoir (Treasury)<br />
+                <b>Comment:</b> Unspent due to Fuse hack, as of August 2022
             </ListGroup.Item>
         </ListGroup>
 
