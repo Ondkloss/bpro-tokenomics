@@ -4,8 +4,8 @@ import HighchartsReact from 'highcharts-react-official'
 import { ListGroup } from 'react-bootstrap';
 import { calculateIntermediatePoints, addPointCopies, getListOfYearMonthStrings, getDefaultChartOptions, cutToMaxLength } from './Utils';
 
-const numberOfMonthsCovered = 24
-const pointOfExtrapolation = 16
+const numberOfMonthsCovered = 60
+const pointOfExtrapolation = 28
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -77,7 +77,8 @@ const options = Highcharts.merge(getDefaultChartOptions(), {
     }, {
         name: "Venture capital round",
         data: cutToMaxLength(
-            calculateIntermediatePoints(0, 0, 48, 538_840),
+            calculateIntermediatePoints(0, 0, 48, 538_840)
+            .concat(addPointCopies(538_840, numberOfMonthsCovered - 49)),
             numberOfMonthsCovered)
     }, {
         name: "Nexus Mutual cover (BIP-11)",

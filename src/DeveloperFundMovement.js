@@ -5,8 +5,8 @@ import { calculateIntermediatePoints, applyReductionsToIntermediatePoints, getLi
 import { ListGroup } from 'react-bootstrap'
 
 const address = "https://etherscan.io/address/0x225f27022a50aF2735287262a47bdacA2315a43E"
-const numberOfMonthsCovered = 24
-const pointOfExtrapolation = 16
+const numberOfMonthsCovered = 60
+const pointOfExtrapolation = 28
 
 const options = Highcharts.merge(getDefaultChartOptions(), {
     chart: {
@@ -81,6 +81,9 @@ const developerFund = () => <>
         </ListGroup.Item>
             <ListGroup.Item>
                 <b>Venture capital seed round:</b> Vested linearly over 4 years from April 2021 (unconfirmed amount, but equal to moved BPRO at time of entry)
+            </ListGroup.Item>
+            <ListGroup.Item>
+                <b>Untracked:</b> There are a number of transactions from the developer fund probably spent towards development not tracked here
             </ListGroup.Item>
     </ListGroup>
 </>
