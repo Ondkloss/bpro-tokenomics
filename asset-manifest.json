@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/bpro-tokenomics/static/css/main.cac78408.chunk.css",
-    "main.js": "/bpro-tokenomics/static/js/main.7cfcc2b0.chunk.js",
-    "main.js.map": "/bpro-tokenomics/static/js/main.7cfcc2b0.chunk.js.map",
-    "runtime-main.js": "/bpro-tokenomics/static/js/runtime-main.13b7698a.js",
-    "runtime-main.js.map": "/bpro-tokenomics/static/js/runtime-main.13b7698a.js.map",
-    "static/js/2.d4832621.chunk.js": "/bpro-tokenomics/static/js/2.d4832621.chunk.js",
-    "static/js/2.d4832621.chunk.js.map": "/bpro-tokenomics/static/js/2.d4832621.chunk.js.map",
-    "static/js/3.48c43644.chunk.js": "/bpro-tokenomics/static/js/3.48c43644.chunk.js",
-    "static/js/3.48c43644.chunk.js.map": "/bpro-tokenomics/static/js/3.48c43644.chunk.js.map",
+    "main.css": "/bpro-tokenomics/static/css/main.be0bbbc0.css",
+    "main.js": "/bpro-tokenomics/static/js/main.4cb675d1.js",
+    "static/js/496.683d43ae.chunk.js": "/bpro-tokenomics/static/js/496.683d43ae.chunk.js",
     "index.html": "/bpro-tokenomics/index.html",
-    "static/css/main.cac78408.chunk.css.map": "/bpro-tokenomics/static/css/main.cac78408.chunk.css.map",
-    "static/js/2.d4832621.chunk.js.LICENSE.txt": "/bpro-tokenomics/static/js/2.d4832621.chunk.js.LICENSE.txt"
+    "main.be0bbbc0.css.map": "/bpro-tokenomics/static/css/main.be0bbbc0.css.map",
+    "main.4cb675d1.js.map": "/bpro-tokenomics/static/js/main.4cb675d1.js.map",
+    "496.683d43ae.chunk.js.map": "/bpro-tokenomics/static/js/496.683d43ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.13b7698a.js",
-    "static/js/2.d4832621.chunk.js",
-    "static/css/main.cac78408.chunk.css",
-    "static/js/main.7cfcc2b0.chunk.js"
+    "static/css/main.be0bbbc0.css",
+    "static/js/main.4cb675d1.js"
   ]
 }
